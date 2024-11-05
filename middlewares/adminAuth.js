@@ -1,8 +1,17 @@
 const jwt = require("jsonwebtoken");
-const Admin = require("../src/models/admin.model");
-const { queryErrorRelatedResponse } = require("../src/helpers/sendresponse");
+const Admin = require("../models/admin.model");
+const { queryErrorRelatedResponse } = require("../helpers/sendresponse");
 
 
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * Verify the admin authentication token.
+ * @function
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @param {function} next - Next middleware.
+ */
+/******  1bb155f3-bb69-4dad-a51d-3d6e91cbf60c  *******/
 module.exports = async function (req, res, next) {
     let token = req.header("Authorization");
     

@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const {  dashboardController } = require("../../../src/controllers");
+const {  dashboardController } = require("../../../controllers");
 const authenticAdmin = require("../../../middlewares/adminAuth");
-const { singleFileUpload, multiDiffFileUpload } = require("../../../src/helpers/upload");
-const { adminAuthValidation } = require("../../../validations");
-const validate = require("../../../middlewares/validate");
+// const { singleFileUpload, multiDiffFileUpload } = require("../../../helpers/upload");
+// const { adminAuthValidation } = require("../../../validations");
+// const validate = require("../../../middlewares/validate");
 
 
 router.get("/search-doctor-and-patient-list",

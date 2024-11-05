@@ -4,7 +4,7 @@ const fs = require("fs");
 
 // const deleteFiles =require("../../../helpers/deletefile");
 const Admin = require("../../models/admin.model");
-const cloudinary = require('../../../config/cloudinaryConfig'); 
+const cloudinary = require('../../config/cloudinaryConfig'); 
 
 /* ------------------ NOTE : ALL DETAILS ABOUT DOCTOR  ------------------ */
 /* ----------------------------- update Doctor profile ----------------------------- */
