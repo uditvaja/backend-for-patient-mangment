@@ -1,41 +1,41 @@
 const http = require("http");
 const express = require("express");
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const { connectDB } = require("./db/dbConnection"); 
 const config = require("./config/config");
-// const cors = require("cors");
-// const routes = require("./routes/v1");
-// const path = require("path");
-// const errorHandler = require("./src/helpers/error");
-// const Chat = require('./src/models/chat.model');
-// const socketIO = require("socket.io");
+const cors = require("cors");
+const routes = require("./routes/v1");
+const path = require("path");
+const errorHandler = require("./helpers");
+// const Chat = require('./');
+const socketIO = require("socket.io");
 // const chatController = require('./src/controllers/chats/chat.controller');
 
 const app = express();
 const server = http.createServer(app);
 
-// // Attach socket.io to the server
-// const io = socketIO(server, {
-//   cors: {
-//     origin: "*", 
-//     methods: ["GET", "POST"]
-//   }
-// });
+// Attach socket.io to the server
+const io = socketIO(server, {
+  cors: {
+    origin: "*", 
+    methods: ["GET", "POST"]
+  }
+});
 
-// // Middlewaresapp.use(express.json());
-// app.use(express.json());
+// Middlewaresapp.use(express.json());
+app.use(express.json());
 
-// app.use(cors());
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-// app.use(express.static(path.resolve(__dirname, `./src/public`)));
-// app.use("/v1", routes);
-// app.use("/public/adminImg", express.static(path.join(__dirname, "./src/public/adminImg")));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static(path.resolve(__dirname, `./public`)));
+app.use("/v1", routes);
+app.use("/public/adminImg", express.static(path.join(__dirname, "./public/adminImg")));
 
-// // Error handler middleware
-// app.use(errorHandler);
+// Error handler middleware
+app.use(errorHandler);
 
-// Connect to the database
+
 connectDB();
 
 // // Socket.IO connection event handler
